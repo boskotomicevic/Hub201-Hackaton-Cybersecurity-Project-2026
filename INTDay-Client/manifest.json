@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "INTDay Client",
+    "version": "1.0",
+    "description": "Cybersecurity scanner that flags suspicious emails",
+    "permissions": [
+        "storage",
+        "scripting",
+        "activeTab"
+    ],
+    "action": {
+        "default_popup": "html/popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://mail.google.com/*"
+            ],
+            "js": [
+                "js/harvest_list.js",
+                "js/harvest_thread.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ]
+}
